@@ -1,4 +1,4 @@
-import { API_URLS } from "richiey1-stacks-helpers-types";
+import { API_URLS } from "stacks-types-sdk";
 
 export interface ContractInfo {
   source: string;

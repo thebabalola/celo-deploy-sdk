@@ -1,5 +1,5 @@
 {
-  "name": "thebabalola-stacks-helpers-deploy",
+  "name": "stacks-deploy-sdk",
   "version": "1.0.1",
   "description": "Deploy, verify, and manage Stacks L2 smart contracts",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@stacks/transactions": "^7.2.0",
     "@stacks/network": "^7.2.0",
-    "richiey1-stacks-helpers-types": "^1.0.1"
+    "stacks-types-sdk": "^1.0.1"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
@@ -33,10 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thebabalola/thebabalola-stacks-helpers-deploy"
+    "url": "https://github.com/thebabalola/stacks-deploy-sdk"
   },
   "bugs": {
-    "url": "https://github.com/thebabalola/thebabalola-stacks-helpers-deploy/issues"
+    "url": "https://github.com/thebabalola/stacks-deploy-sdk/issues"
   },
-  "homepage": "https://github.com/thebabalola/thebabalola-stacks-helpers-deploy#readme"
+  "homepage": "https://github.com/thebabalola/stacks-deploy-sdk#readme"
+
 }

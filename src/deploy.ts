@@ -3,8 +3,8 @@ import {
   broadcastTransaction,
   PostConditionMode,
 } from "@stacks/transactions";
-import { API_URLS, MAINNET } from "richiey1-stacks-helpers-types";
-import type { BatchResult } from "richiey1-stacks-helpers-types";
+import { API_URLS, MAINNET } from "stacks-types-sdk";
+import type { BatchResult } from "stacks-types-sdk";
 
 export interface DeployOptions {
   contractName: string;
