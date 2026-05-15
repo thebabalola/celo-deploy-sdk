@@ -3,8 +3,8 @@ import {
   broadcastTransaction,
   PostConditionMode,
 } from "@stacks/transactions";
-import { API_URLS, MAINNET } from "stacks-types-sdk";
-import type { BatchResult } from "stacks-types-sdk";
+import { API_URLS, MAINNET } from "cest-types-sdk";
+import type { BatchResult } from "cest-types-sdk";
 
 export interface DeployOptions {
   contractName: string;

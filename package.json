@@ -1,5 +1,5 @@
 {
-  "name": "stacks-deploy-sdk",
+  "name": "celo-deploy-sdk",
   "version": "1.0.1",
   "description": "Deploy, verify, and manage Stacks L2 smart contracts",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@stacks/transactions": "^7.2.0",
     "@stacks/network": "^7.2.0",
-    "stacks-types-sdk": "^1.0.1"
+    "cest-types-sdk": "^1.0.1"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
@@ -33,11 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thebabalola/stacks-deploy-sdk"
+    "url": "https://github.com/thebabalola/celo-deploy-sdk"
   },
   "bugs": {
-    "url": "https://github.com/thebabalola/stacks-deploy-sdk/issues"
+    "url": "https://github.com/thebabalola/celo-deploy-sdk/issues"
   },
-  "homepage": "https://github.com/thebabalola/stacks-deploy-sdk#readme"
+  "homepage": "https://github.com/thebabalola/celo-deploy-sdk#readme"
 
 }

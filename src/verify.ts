@@ -1,4 +1,4 @@
-import { API_URLS } from "stacks-types-sdk";
+import { API_URLS } from "cest-types-sdk";
 
 export interface ContractInfo {
   source: string;
