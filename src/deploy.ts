@@ -1,43 +1,34 @@
-import {
-  makeContractDeploy,
-  broadcastTransaction,
-  PostConditionMode,
-} from "@stacks/transactions";
-import { API_URLS, MAINNET } from "cest-types-sdk";
-import type { BatchResult } from "cest-types-sdk";
+import { ethers } from "ethers";
+import { CELO_MAINNET_RPC } from "cest-types-sdk";
+import type { EvmDeployOptions, EvmTransactionResult } from "cest-types-sdk";
 
-export interface DeployOptions {
-  contractName: string;
-  codeBody: string;
-  senderKey: string;
-  network?: any;
-  nonce?: bigint;
-  fee?: number;
-}
-
-export async function deployContract(options: DeployOptions): Promise<BatchResult> {
+export async function deployContract(options: EvmDeployOptions): Promise<EvmTransactionResult> {
   try {
-    const tx = await makeContractDeploy({
-      contractName: options.contractName,
-      codeBody: options.codeBody,
-      senderKey: options.senderKey,
-      network: options.network ?? MAINNET,
-      nonce: options.nonce,
-      fee: options.fee,
-      postConditionMode: PostConditionMode.Allow,
-    });
+    const provider = new ethers.JsonRpcProvider(options.providerUrl ?? CELO_MAINNET_RPC);
+    const wallet = new ethers.Wallet(options.privateKey, provider);
 
-    const result = await broadcastTransaction({
-      transaction: tx,
-      network: options.network ?? MAINNET,
-    });
+    const factory = new ethers.ContractFactory(options.abi, options.bytecode, wallet);
+    
+    const deployTxOptions: any = {};
+    if (options.gasLimit) deployTxOptions.gasLimit = options.gasLimit;
+    if (options.gasPrice) deployTxOptions.gasPrice = options.gasPrice;
 
-    const txid = typeof result === "string" ? result : (result as any)?.txid;
-    if (txid && !(result as any).error) {
-      return { txid, success: true };
-    }
-    return { txid: "", success: false, error: JSON.stringify(result) };
+    const contract = await factory.deploy(...(options.args ?? []), deployTxOptions);
+    await contract.waitForDeployment();
+
+    const contractAddress = await contract.getAddress();
+    const deployTx = contract.deploymentTransaction();
+
+    return {
+      txHash: deployTx?.hash ?? "",
+      contractAddress,
+      success: true,
+    };
   } catch (err: any) {
-    return { txid: "", success: false, error: err.message };
+    return {
+      txHash: "",
+      success: false,
+      error: err.message || String(err),
+    };
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "celo-deploy-sdk",
   "version": "1.0.1",
-  "description": "Deploy, verify, and manage Stacks L2 smart contracts",
+  "description": "Deploy, verify, and manage Celo smart contracts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -12,20 +12,19 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@stacks/transactions": "^7.2.0",
-    "@stacks/network": "^7.2.0",
+    "ethers": "^6.13.0",
     "cest-types-sdk": "^1.0.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/node": "^20.11.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
-    "stacks",
-    "bitcoin",
-    "l2",
+    "celo",
+    "evm",
     "blockchain",
     "deploy"
   ],
