@@ -1,6 +1,6 @@
 {
   "name": "celo-deploy-sdk",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Deploy, verify, and manage Celo smart contracts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
